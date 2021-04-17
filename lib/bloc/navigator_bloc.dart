@@ -1,6 +1,8 @@
 //events
 import 'package:flutter/material.dart';
 import 'package:hackaton_fridge/repo/repo.dart';
+import 'package:hackaton_fridge/screens/add_product_qr_screen.dart';
+import 'package:hackaton_fridge/screens/add_product_screen.dart';
 import 'package:hackaton_fridge/screens/main_screen.dart';
 import 'package:hackaton_fridge/screens/sign_in_screen.dart';
 import 'package:hackaton_fridge/screens/sign_up_screen.dart';
@@ -13,7 +15,7 @@ class NavigatorInitialEvent extends NavigatorEvents {
   NavigatorInitialEvent({this.navigatorKey});
 }
 
-enum Screens { SIGN_IN, SIGN_UP, MAIN }
+enum Screens { SIGN_IN, SIGN_UP, MAIN, ADD_SCREEN, ADD_SCREEN_QR }
 
 class NavigatorChangeScreenEvent extends NavigatorEvents {
   final Screens screen;
@@ -57,6 +59,12 @@ class NavigatorBloc {
           case Screens.MAIN:
             navigatorKey.currentState
                 .pushReplacementNamed(MainScreen.routeName);
+            break;
+          case Screens.ADD_SCREEN:
+            navigatorKey.currentState.pushNamed(AddProductScreen.routeName);
+            break;
+          case Screens.ADD_SCREEN_QR:
+            navigatorKey.currentState.pushNamed(AddProductQrScreen.routeName);
             break;
         }
         break;

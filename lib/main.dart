@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hackaton_fridge/bloc/navigator_bloc.dart';
 import 'package:hackaton_fridge/constants/constants.dart';
+import 'package:hackaton_fridge/repo/repo.dart';
+import 'package:hackaton_fridge/screens/add_product_qr_screen.dart';
+import 'package:hackaton_fridge/screens/add_product_screen.dart';
 import 'package:hackaton_fridge/screens/main_screen.dart';
 import 'package:hackaton_fridge/screens/sign_in_screen.dart';
 import 'package:hackaton_fridge/screens/sign_up_screen.dart';
@@ -47,7 +50,9 @@ class _AppState extends State<App> {
               routes: {
                 SignInSCreen.routeName: (context) => SignInSCreen(),
                 SignUpScreen.routeName: (context) => SignUpScreen(),
-                MainScreen.routeName: (context) => MainScreen()
+                MainScreen.routeName: (context) => MainScreen(),
+                AddProductScreen.routeName: (context) => AddProductScreen(),
+                AddProductQrScreen.routeName: (context) => AddProductQrScreen()
               },
               home: isSignedIn ? MainScreen() : SignInSCreen(),
             );
